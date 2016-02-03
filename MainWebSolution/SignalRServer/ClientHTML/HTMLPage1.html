@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test Signal R</title>
+    <script src="../Scripts/jquery-1.6.4.js"></script>
+    <script src="../Scripts/jquery.signalR-2.2.0.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(function () {
+            var connection = $.connection("http://localhost:9000/echo");
+            connection.start()
+     .done(function () {
+         connection.send("Hi there!"); // Notify other clients
+     })
+     .fail(function () {
+         alert("Error connecting to realtime service");
+     });
+
+            $("#buttonSend").click(function () {
+                var obj = {
+                    messageType: 1, // Broadcast message, type = 1
+                    text: $("#text").val(),
+                    from: $("#currentUser").val(),
+                };
+                connection.send(obj);
+            });
+        });
+
+
+    </script>
+
+    Sender: <input type="text" name="fname"><br>
+    Body: <input type="text" name="lname"><br>
+    <input id="buttonSend" type="button" value="Submit">
+
+</body>
+</html>
