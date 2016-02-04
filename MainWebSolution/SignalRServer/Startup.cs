@@ -22,7 +22,6 @@ namespace SignalRServer
                                         map.RunSignalR<EchoConnection>();
                                     }
                                     );
-            GlobalHost.
         }
     }
 }
