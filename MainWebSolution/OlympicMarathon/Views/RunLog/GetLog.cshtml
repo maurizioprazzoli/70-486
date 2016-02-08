@@ -1,8 +1,14 @@
 ﻿@model List<OlympicMarathon.Models.LogModel>
+<head>
+    <style>
+        /*table>tbody>tr>th:nth-child(3) { font-weight: bold; color: red;}*/
+        table>tbody>tr { font-weight: bold; color: red;}
+    </style>
+</head>
 <h2>View Runs</h2>
 <table>
     <tr>
-    <th>Id</th>
+        <th>Id</th>
         <th>Date</th>
         <th>Distance</th>
         <th>Duration</th>
@@ -15,27 +21,22 @@
                 @Html.DisplayFor(model => log.Id)
             </td>
 
-            <td>
-
-            </td>
+            <td></td>
 
             <td>
                 @*@Html.DisplayFor(model => log.Distance)
-    @Html.DisplayFor(model => log.Distance.ToString() + " miles")
-    @Html.DisplayFor(model => log.Distance) miles*@
-                @log.Distance.ToString() @Html.TextArea("miles","content")
+                    @Html.DisplayFor(model => log.Distance.ToString() + " miles")*@
+                @Html.DisplayFor(model => log.Distance) miles
             </td>
 
             <td>
                 @Html.DisplayFor(model => log.Time)
             </td>
 
-            <td>
-
-            </td>
+            <td></td>
 
             <td>
-                @Html.ActionLink("Edit","EditLog", new {id = log.Id})
+                @Html.ActionLink("Edit", "EditLog", new { id = log.Id })
             </td>
 
             <td>

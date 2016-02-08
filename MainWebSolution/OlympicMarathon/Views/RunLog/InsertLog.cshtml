@@ -1,17 +1,29 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model OlympicMarathon.Models.LogModel
 
-<!DOCTYPE html>
+    <script src="@Url.Content("-/Scripts/jguery.validate.min.js")"></script>
+    <script src="@Url.Content("-/Scripts/jguery.validate.unobtrusive.min.js")"></script>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>InsertLog</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>LogModel</legend>
+            <div> @Html.LabelFor(model => model.RunDate) </div>
+
+            <div> @Html.EditorFor(model => model.RunDate) @Html.ValidationMessageFor(model => model.RunDate) </div>
+
+            <div> @Html.LabelFor(model => model.Distance) </div>
+
+            <div> @Html.EditorFor(model => model.Distance) @Html.ValidationMessageFor(model => model.Distance) </div>
+
+            <div> @Html.LabelFor(model => model.Time) HH:MM:SS </div>
+
+            <div> @Html.EditorFor(model => model.Time) @Html.ValidationMessageFor(model => model.Time) </div>
+
+            <p>
+                <input type="submit" value="Create" i>
+            </p>
+
+        </fieldset>
+    }

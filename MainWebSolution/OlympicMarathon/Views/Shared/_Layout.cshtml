@@ -4,14 +4,16 @@
     <title>OlympicMarathon</title>
 </head>
 <body>
+    @RenderBody()
     <footer>
-        <script type"text javascript">
-            var c = document.getElementById('myCanva');
+        <canvas1 id="myCanvas">London 2012</canvas1>
+        <script type="text/javascript">
+            var c = document.getElementById('myCanvas');
             var ctx = c.getContext('2d');
             ctx.font = '30pt Calibri';
             ctx.strokeStyle = 'gray';
             ctx.lineWidth = 3;
-            ctx.stokeText('London 2012', 80, 30)
+            ctx.strokeText("London 2012", 80, 30);
         </script>
     </footer>
 </body>

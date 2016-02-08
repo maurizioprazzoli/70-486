@@ -8,10 +8,8 @@ using System.Web.Mvc;
 
 namespace OlympicMarathon.Controllers
 {
-    [Authorize]
     public class RunLogController : Controller
     {
-        [AllowAnonymous]
         public ActionResult GetLog()
         {
             List<LogModel> log = RunnerLogDb.GetLogsFromDataabse();
@@ -32,7 +30,6 @@ namespace OlympicMarathon.Controllers
             return RedirectToAction("GetLog");
         }
 
-        [Authorize ]
         public ActionResult DeleteLog(int id)
         {
             RunnerLogDb.DeleteLog(id);

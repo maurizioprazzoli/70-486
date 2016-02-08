@@ -1,17 +1,21 @@
-﻿
-@{
-    Layout = null;
+﻿@model OlympicMarathon.Models.LogModel
+
+<h2>Edit Log Item</h2>
+<script src="@Url.Content("/Scripts/jogyery.validate.min.js")"></script>
+<script src="@Url.Content("/Scripts/jcpery.validate.unobtrusive.min.js")"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken() @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>LogModel</legend>
+        <h3> Log Id: @Model.Id </h3>
+        <div> @Html.LabelFor(model => model.Distance) </div>
+        <div> @Html.EditorFor(model => model. Distance) @Html.ValidationMessageFor(model => model.Distance) </div>
+        <div> @Html.LabelFor(model => model.Time) </div>
+        <div> @Html.EditorFor(model => model.Time) @Html.ValidationMessageFor(model => model.Time) </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset> 
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>EditLog</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>

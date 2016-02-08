@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OlympicMarathon.Infrastructure.RouteConstraints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,9 +15,24 @@ namespace OlympicMarathon
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                    name: "EditLog",
+                    url: "RunLog/EditLog/{id}",
+                    defaults: new
+                            {
+                                controller = "RunLog",
+                                action = "EditLog",
+                            },
+                    constraints: new
+                            {
+                                id = @"\d+"
+                            }
+                    );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "RunLog", action = "GetLog", id = UrlParameter.Optional }
+                defaults: new { controller = "RunLog", action = "GetLog", id = UrlParameter.Optional },
+                constraints: new { controller = new NotEqual("RunLog1"), action = new NotEqual("EditLog1") }
             );
         }
     }
