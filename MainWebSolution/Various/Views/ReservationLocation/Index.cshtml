@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Reservation", "ReservationLocation"))
+{
+    @Html.TextBox("loc");
+    <br />
+    <input type="submit" name="Submit" />
+}
+
